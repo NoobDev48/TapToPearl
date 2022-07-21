@@ -22,7 +22,7 @@ class PearlCooldown extends Task{
 	public function onRun() : void{
         $player = $this->player;
 		if($player->isOnline()){
-            $player->sendMessage(self::prefix . " §aEnderpearl cooldown finished");
+            $player->sendMessage("§aEnderpearl cooldown finished");
             unset(Main::$pcooldown[$this->player->getName()]);
     } 
         
