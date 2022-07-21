@@ -58,7 +58,7 @@ class Main extends PluginBase implements Listener{
              if($item->getId() == ItemIds::ENDER_PEARL){
                     $entity = new EPearl(Location::fromObject($player->getPosition(), $player->getPosition()->getWorld()), null, $player);
                     $entity->spawnToAll();
-                    $player->sendMessage(self::prefix . " §cEnderPearl is now on §a15 §cseconds Cooldown.");
+                    $player->sendMessage( "§cEnderPearl is now on §a15 §cseconds Cooldown.");
                     Main::$pcooldown[$player->getName()] = $player->getName();
                     $this->getScheduler()->scheduleDelayedTask(new PearlCooldown($this, $player), 20 * 15);
                     $sound = new EndermanTeleportSound();
@@ -71,7 +71,7 @@ class Main extends PluginBase implements Listener{
         }
         } else {
                 if(isset(self::$pcooldown[$player->getName()])){
-                    $player->sendMessage(self::prefix . " §bEnderPearl is currently on Cooldown.");
+                    $player->sendMessage("§bEnderPearl is currently on Cooldown.");
                     return;
                 }
             }
@@ -88,7 +88,7 @@ class Main extends PluginBase implements Listener{
                  $event->cancel();
                     $entity = new EPearl(Location::fromObject($player->getPosition(), $player->getPosition()->getWorld()), null, $player);
                     $entity->spawnToAll();
-                    $player->sendMessage(self::prefix . " §cEnderPearl is now on §a15 §cseconds Cooldown.");
+                    $player->sendMessage("§cEnderPearl is now on §a15 §cseconds Cooldown.");
                     Main::$pcooldown[$player->getName()] = $player->getName();
                     $this->getScheduler()->scheduleDelayedTask(new PearlCooldown($this, $player), 20 * 15);
                     $sound = new EndermanTeleportSound();
@@ -102,7 +102,7 @@ class Main extends PluginBase implements Listener{
         } else {
                 if(isset(self::$pcooldown[$player->getName()])){
                     if($item instanceof EnderPearl){
-                    $player->sendMessage(self::prefix . " §bEnderPearl is currently on Cooldown.");
+                    $player->sendMessage("§bEnderPearl is currently on Cooldown.");
                     $event->cancel();
                    // return;
                 }
